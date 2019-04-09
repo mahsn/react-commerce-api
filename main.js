@@ -12,7 +12,7 @@ const args = process.argv
         return args;
     }, {});
 
-const PORT = args.mode === 'prod' ? 80 : 3030;
+const PORT = args.mode === 'prod' ? 3030 : 3030;
 const DATA_FILE = 'data.json';
 
 checkData(DATA_FILE, () => {
