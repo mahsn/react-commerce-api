@@ -4,14 +4,6 @@ const jsonServer = require('json-server');
 const jwt = require('jsonwebtoken');
 const checkData = require('./make');
 
-const args = process.argv
-    .slice(2)
-    .map(arg => arg.split('='))
-    .reduce((args, [value, key]) => {
-        args[value] = key;
-        return args;
-    }, {});
-
 const PORT = process.env.PORT || 3030;
 const DATA_FILE = 'data.json';
 
