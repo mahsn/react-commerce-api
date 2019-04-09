@@ -1,0 +1,19 @@
+{
+  "name": "react-commerce-api",
+  "version": "1.0.0",
+  "private": false,
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon main",
+    "build": "node main mode=prod"
+  },
+  "dependencies": {
+    "faker": "^4.1.0",
+    "json-server": "^0.14.2",
+    "jsonwebtoken": "^8.5.0",
+    "body-parser": "^1.18.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
