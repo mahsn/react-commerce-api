@@ -1,6 +1,10 @@
 const fs = require('fs');
 const faker = require('faker');
 
+const imagesCategory = 'transport';
+
+const getImage = (width = false, height = false) => faker.image.imageUrl(width, height, imagesCategory, false, true);
+
 const generateData = () => {
     const discounts = [10, 15, 30, 55];
 
@@ -35,7 +39,7 @@ const generateData = () => {
     };
 
     const randomGallery = () => {
-        return new Array(6).fill(null).map(e => (e = faker.image.imageUrl()));
+        return new Array(6).fill(getImage());
     };
 
     const getSpecialPrice = price => {
@@ -51,7 +55,7 @@ const generateData = () => {
             price: faker.commerce.price(),
             short_description: faker.lorem.sentence(),
             description: faker.lorem.paragraph(),
-            thumbnail: faker.image.imageUrl(),
+            thumbnail: getImage(),
             gallery: randomGallery(),
             categories: randomCategory(),
             related: randomProducts(),
@@ -72,12 +76,7 @@ const generateData = () => {
         });
     }
 
-    data.banners = [
-        faker.image.imageUrl(),
-        faker.image.imageUrl(),
-        faker.image.imageUrl(),
-        faker.image.imageUrl()
-    ];
+    data.banners = Array(6).fill(getImage(1440, 768));
 
     return data;
 };
