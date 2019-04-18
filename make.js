@@ -72,19 +72,22 @@ const generateData = () => {
         });
     }
 
+    data.banners = [
+        faker.image.imageUrl(),
+        faker.image.imageUrl(),
+        faker.image.imageUrl(),
+        faker.image.imageUrl()
+    ];
+
     return data;
 };
 
 module.exports = (filename, callback) => {
     if (!callback) return false;
 
-    if (fs.existsSync(filename)) {
+    const data = generateData();
+    fs.writeFile(filename, JSON.stringify(data, null, '\t'), err => {
+        if (err) throw err;
         callback();
-    } else {
-        const data = generateData();
-        fs.writeFile(filename, JSON.stringify(data, null, '\t'), err => {
-            if (err) throw err;
-            callback();
-        });
-    }
+    });
 };
