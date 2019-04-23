@@ -47,6 +47,7 @@ const generateData = () => {
         return price - (price * discounts[index]) / 100;
     };
 
+    const rating = [3,4,5];
     for (let i = 1; i <= qty.products; i++) {
         const product = {
             id: i + 1,
@@ -59,6 +60,7 @@ const generateData = () => {
             gallery: randomGallery(),
             categories: randomCategory(),
             related: randomProducts(),
+            rating: rating[Math.floor(Math.random() * rating.length)],
         };
 
         if (Math.random() >= 0.8) {
