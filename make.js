@@ -78,7 +78,7 @@ const generateData = () => {
         });
     }
 
-    data.banners = Array(6).fill(getImage(1024, 600));
+    data.banners = Array(6).fill([getImage(1024, 600), getImage(768, 320)]);
 
     return data;
 };
