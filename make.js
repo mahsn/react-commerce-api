@@ -25,7 +25,7 @@ const generateData = () => {
     };
 
     const mathRandom = n => {
-        return Math.floor(Math.random() * n);
+        return Math.floor(Math.random() * n) + 1;
     };
 
     const createArray = (size, ids) => {
@@ -33,7 +33,7 @@ const generateData = () => {
         const generated = [];
         new Array(n).fill(null).forEach(() => {
             const id = mathRandom(ids);
-            if (generated.indexOf(id) < 0) return;
+            if (generated.indexOf(id) >= 0) return;
             generated.push(id);
         });
 
