@@ -5,6 +5,18 @@
             "name": "Frontend Team",
             "email": "frontend@reactcommerce.com",
             "password": "reactcommerce"
+        },
+        {
+            "id": 2,
+            "name": "Admin",
+            "email": "admin@reactcommerce.com",
+            "password": "reactcommerce"
+        },
+        {
+            "id": 3,
+            "name": "João das Neves",
+            "email": "john-snow@reactcommerce.com",
+            "password": "reactcommerce"
         }
     ]
 }

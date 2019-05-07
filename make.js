@@ -18,7 +18,7 @@ const generateData = () => {
         store: {
             company: 'React Commerce LTDA',
             phone: '+55 11 0000-0000',
-            email: 'exemple@domain.com',
+            email: 'hello@react-commerce.com',
         },
         categories: [],
         products: [],
@@ -28,14 +28,24 @@ const generateData = () => {
         return Math.floor(Math.random() * n);
     };
 
+    const createArray = (size, ids) => {
+        const n = mathRandom(size);
+        const generated = [];
+        new Array(n).fill(null).forEach(() => {
+            const id = mathRandom(ids);
+            if (generated.indexOf(id) < 0) return;
+            generated.push(id);
+        });
+
+        return generated.sort();
+    };
+
     const randomProducts = () => {
-        const n = mathRandom(qty.related);
-        return new Array(n).fill(null).map(e => (e = mathRandom(qty.products)));
+        return createArray(qty.related, qty.products);
     };
 
     const randomCategory = () => {
-        const n = mathRandom(qty.categories);
-        return new Array(n).fill(null).map(e => (e = mathRandom(qty.categories)));
+        return createArray(qty.categories, qty.categories);
     };
 
     const randomGallery = () => {
@@ -43,7 +53,7 @@ const generateData = () => {
     };
 
     const getSpecialPrice = price => {
-        const index = Math.floor(Math.random() * discounts.length);
+        const index = mathRandom(discounts.length);
         return price - (price * discounts[index]) / 100;
     };
 
@@ -52,7 +62,7 @@ const generateData = () => {
         const product = {
             id: i + 1,
             title: faker.commerce.productName(),
-            qty: Math.floor(Math.random() * 1000),
+            qty: mathRandom(1000),
             price: faker.commerce.price(),
             short_description: faker.lorem.sentence(),
             description: faker.lorem.paragraph(),
@@ -60,7 +70,7 @@ const generateData = () => {
             gallery: randomGallery(),
             categories: randomCategory(),
             related: randomProducts(),
-            rating: rating[Math.floor(Math.random() * rating.length)],
+            rating: rating[mathRandom(rating.length)],
         };
 
         if (Math.random() >= 0.8) {
@@ -75,6 +85,10 @@ const generateData = () => {
             id: i + 1,
             title: faker.commerce.department(),
             short_description: faker.lorem.sentence(),
+            banner: [
+                getImage(1024, 600),
+                getImage(768, 320),
+            ]
         });
     }
 
