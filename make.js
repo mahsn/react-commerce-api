@@ -3,7 +3,7 @@ const faker = require('faker');
 
 const imagesCategory = 'transport';
 
-const getImage = (width = false, height = false) => faker.image.imageUrl(width, height, imagesCategory, false, true);
+const getImage = (width = false, height = false) => `${faker.image.imageUrl(width, height, imagesCategory, false, true)}/`;
 
 const generateData = () => {
     const discounts = [10, 15, 30, 55];
