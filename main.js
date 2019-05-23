@@ -1,4 +1,6 @@
 const fs = require('fs');
+const path = require('path');
+const express = require('express');
 const bodyParser = require('body-parser');
 const jsonServer = require('json-server');
 const jwt = require('jsonwebtoken');
@@ -15,6 +17,7 @@ checkData(DATA_FILE, () => {
     server.use(bodyParser.urlencoded({ extended: true }));
     server.use(bodyParser.json());
     server.use(jsonServer.defaults());
+    server.use('/images', express.static(path.join(__dirname, 'images')));
 
     const SECRET_KEY = '123456789';
     const validity = '24h';

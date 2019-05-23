@@ -3,6 +3,13 @@ const faker = require('faker');
 
 const imagesCategory = 'transport';
 
+const apiURL = 'https://react-commerce-api.herokuapp.com';
+
+const mockBanner = [
+    `${apiURL}/images/banner.png`,
+    `${apiURL}/images/banner-mobile.png`,
+];
+
 const getImage = (width = false, height = false) => `${faker.image.imageUrl(width, height, imagesCategory, false, true)}/`;
 
 const generateData = () => {
@@ -22,7 +29,11 @@ const generateData = () => {
         },
         categories: [],
         products: [],
-        banners: [],
+        banners: [
+            mockBanner,
+            mockBanner,
+            mockBanner,
+        ],
         cart: [],
     };
 
@@ -93,8 +104,6 @@ const generateData = () => {
             ]
         });
     }
-
-    data.banners = Array(6).fill([getImage(1024, 600), getImage(768, 320)]);
 
     const productQty = qty.products;
     for (let i = 0; i < 3; i++) {
