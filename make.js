@@ -22,6 +22,8 @@ const generateData = () => {
         },
         categories: [],
         products: [],
+        banners: [],
+        cart: [],
     };
 
     const mathRandom = n => {
@@ -93,6 +95,12 @@ const generateData = () => {
     }
 
     data.banners = Array(6).fill([getImage(1024, 600), getImage(768, 320)]);
+
+    const productQty = qty.products;
+    for (let i = 0; i < 3; i++) {
+        const { id, thumbnail: image, title: name, price, qty } = data.products[mathRandom(productQty)];
+        data.cart.push({ id, image, name, price, qty });
+    }
 
     return data;
 };
