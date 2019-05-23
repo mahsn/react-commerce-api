@@ -6,8 +6,8 @@ const imagesCategory = 'transport';
 const apiURL = 'https://react-commerce-api.herokuapp.com';
 
 const mockBanner = [
-    `${apiURL}/images/banner.png`,
     `${apiURL}/images/banner-mobile.png`,
+    `${apiURL}/images/banner.png`,
 ];
 
 const getImage = (width = false, height = false) => `${faker.image.imageUrl(width, height, imagesCategory, false, true)}/`;
